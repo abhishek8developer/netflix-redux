@@ -19,7 +19,7 @@ class HomeView extends React.Component{
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque id quam sapiente unde voluptatum alias vero debitis, magnam quis quod.</p>
                         <div className="button-wrapper">
                             <a href="#" className="Button" data-primary={true}>Watch now </a>
-                            <a href="#" className="Button" data-primary={false}>+ My list</a>
+                            <a href="#/mylist" className="Button" data-primary={false}>+ My list</a>
                         </div>
                         </div>
                         <div className="overlay"></div>

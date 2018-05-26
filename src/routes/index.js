@@ -4,7 +4,7 @@ import { createHashHistory } from 'history';
 import { Provider } from 'react-redux'
 
 import HomeView from '../modules/homeView/homeView';
-import Login from '../modules/login/login';
+import MyList from '../modules/myList/myList';
 
 const appHistory = useRouterHistory(createHashHistory)({});
 
@@ -17,7 +17,7 @@ class App extends React.Component {
       <Provider store={this.props.store}>
           <Router history={appHistory} children={this.props.routes} >
             <Route path="/" component={HomeView} />
-            <Route path="/login" component={Login} />
+            <Route path="/mylist" component={MyList} />
           </Router>
       </Provider>
     )

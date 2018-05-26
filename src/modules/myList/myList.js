@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as actions from '../../redux/actions'
 import Header from '../../components/header/header'
-import './login.scss'
+import './MyList.scss'
 
-class Login extends React.Component{
+class MyList extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -69,4 +69,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(MyList);
