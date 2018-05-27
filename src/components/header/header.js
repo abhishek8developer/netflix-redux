@@ -41,7 +41,7 @@ class Header extends React.Component{
                 <div className="UserProfile">
                     <div className="User">
                     <div className="name">Jack Oliver</div>
-                    <div className="image"><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/17241-200.png" alt="profile" /></div>
+                    <div className="image"><img src="https://cryptoinbox.com/images/user-icon.svg" alt="profile" /></div>
                     </div>
                 </div>
             </header>

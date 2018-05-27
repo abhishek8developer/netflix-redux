@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 
-import login from './login/reducer/index';
+import myList from './myList/reducer/index';
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
-    login: login,
+    myList: myList,
     ...asyncReducers,
   })
 }

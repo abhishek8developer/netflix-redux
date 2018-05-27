@@ -1,4 +1,5 @@
 @import 'base';
+@import 'mylist';
 @import '~bootstrap/scss/bootstrap.scss';
 
 html {
@@ -12,8 +13,3 @@ body {
   height: 100%;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}

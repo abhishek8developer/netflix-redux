@@ -25,7 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  background: #221f1f;
+  background: #221f1f !important;
   color: #ffffff !important;
   font-family: "Lato", sans-serif;
 }
@@ -463,12 +463,15 @@ p {
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 32px;
   width: 32px;
+  &:before{
+    box-sizing: content-box !important;
+  }
 }

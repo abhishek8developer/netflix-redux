@@ -1,10 +1,11 @@
 import {takeLatest} from 'redux-saga/effects';
 import * as constants from './constants';
 
-import { loginRequest } from './login/action/';
+import { requestMyList, requestHomeMovies } from './myList/action/';
 
 export function* watchActions () {
-  yield takeLatest(constants.USER_LOGIN_REQUEST, loginRequest);
+  yield takeLatest(constants.REQUEST_MY_LIST, requestMyList);
+  yield takeLatest(constants.REQUEST_HOME_MOVIES, requestHomeMovies);
 }
 
 export default function* rootSaga () {

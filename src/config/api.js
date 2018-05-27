@@ -2088,3 +2088,11 @@ const comedy = {
     "total_pages": 2973,
     "total_results": 59455
 };
+
+export {
+    topTVPicks,
+    movie,
+    horror,
+    sciFi,
+    comedy
+}

@@ -1,5 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../../redux/actions'
 import Header from '../../components/header/header'
+import TitleList from './component/titleList'
 import './homeView.scss'
 
 class HomeView extends React.Component{
@@ -7,7 +11,12 @@ class HomeView extends React.Component{
         super(props);
         this.state = {};
     }
+    componentDidMount(){
+        this.props.requestHomeMovies();
+    }
     render(){
+        console.log(this.props.homeMovies,'00000')
+        const { homeMovies } = this.props;
         return(
             <div className='homeView container-fluid'>
                 <Header />
@@ -23,17 +32,28 @@ class HomeView extends React.Component{
                         </div>
                         </div>
                         <div className="overlay"></div>
-                        {/* <TitleList title="Search Results" url={this.state.searchUrl} /> */}
-                        {/* <TitleList title="Top TV picks for Jack" url='discover/tv?sort_by=popularity.desc&page=1' />
-                        <TitleList title="Trending now" url='discover/movie?sort_by=popularity.desc&page=1' />
-                        <TitleList title="Most watched in Horror" url='genre/27/movies?sort_by=popularity.desc&page=1' />
-                        <TitleList title="Sci-Fi greats" url='genre/878/movies?sort_by=popularity.desc&page=1' />
-                        <TitleList title="Comedy magic" url='genre/35/movies?sort_by=popularity.desc&page=1' /> */}
                     </div>
                 </div>
+                <TitleList title="Search Results" data={homeMovies.data.movie} />
+                <TitleList title="Top TV picks for Jack" data={homeMovies.data.topTVPicks} />
+                <TitleList title="Trending now" data={homeMovies.data.movie} />
+                <TitleList title="Most watched in Horror" data={homeMovies.data.horror} />
+                <TitleList title="Sci-Fi greats" data={homeMovies.data.sciFi} />
+                <TitleList title="Comedy magic" data={homeMovies.data.comedy} />
             </div>
         );
     }
 }
 
-export default HomeView;
+export function mapStateToProps(state) {
+    return {
+        myList: state.myList,
+        homeMovies: state.myList.homeMovies
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
