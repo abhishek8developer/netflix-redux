@@ -66,6 +66,7 @@ class MyList extends React.Component{
                         style={{'color': `rgba(255,255,255,${createItem.length < 10 ? '.'+createItem.length : '1' }`}}
                         placeholder='Add item to your wish List'
                         value={createItem}
+                        autoFocus
                     />
                     <button title='Add Item' onClick={e => this.handleAddMovie(e)}></button>
                 </div>
@@ -84,8 +85,10 @@ class MyList extends React.Component{
                         const title = titleArray ? titleArray[0] : null;
                         console.log(myList.data, val, title, title != undefined);
                         let backDrop = title != undefined ? 'http://image.tmdb.org/t/p/original' + title.backdrop_path : null;
-                        return title != undefined ?
-                                (<div key={i} className='Item' style={{backgroundImage: 'url(' + backDrop + ')'}} >
+                        return title == undefined && i + 1 == myList.data.length ?
+                                    <div className='no-data' key={i} ><h2>No movie found.</h2></div>                
+                                :
+                                <div key={i} className='Item' style={{backgroundImage: 'url(' + backDrop + ')'}} >
                                     <div className="overlay">
                                         <div className="title">{ title.name || title.original_title }</div>
                                         <div className="rating">{title.vote_average} / 10</div>
@@ -97,9 +100,7 @@ class MyList extends React.Component{
                                             </div>
                                         </div>
                                     </div>
-                                </div>)
-                            :
-                            <div className='no-data' key={i} ><h2>No movie found.</h2></div>                
+                                </div>
                         }
                     )
                 }
@@ -117,12 +118,14 @@ class MyList extends React.Component{
                 <div className='content row'>
                     <div className='col-sm-12'>
                         <div className='row'>
-                            <div className='col-sm-1'></div>
-                            <div className='col-sm-8'>
-                                {this.renderFavourites()}
-                            </div>
+                            <h3 className='my-list-text col-sm-9'>My List</h3>
                             <div className='col-sm-3'>
                                 {this.renderInput()}
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-sm-12'>
+                                {this.renderFavourites()}
                             </div>
                         </div>
                     </div>
