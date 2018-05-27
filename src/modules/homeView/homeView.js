@@ -15,7 +15,7 @@ class HomeView extends React.Component{
         this.props.requestHomeMovies();
     }
     render(){
-        const { homeMovies } = this.props;
+        const { homeMovies, myList, successMyList } = this.props;
         return(
             <div className='homeView container-fluid'>
                 <Header />
@@ -33,12 +33,12 @@ class HomeView extends React.Component{
                         <div className="overlay"></div>
                     </div>
                 </div>
-                <TitleList title="Search Results" data={homeMovies.data.movie} />
-                <TitleList title="Top TV picks for Jack" data={homeMovies.data.topTVPicks} />
-                <TitleList title="Trending now" data={homeMovies.data.movie} />
-                <TitleList title="Most watched in Horror" data={homeMovies.data.horror} />
-                <TitleList title="Sci-Fi greats" data={homeMovies.data.sciFi} />
-                <TitleList title="Comedy magic" data={homeMovies.data.comedy} />
+                <TitleList title="Search Results" data={homeMovies.data.movie} myList={myList} successMyList={successMyList} />
+                <TitleList title="Top TV picks for Jack" data={homeMovies.data.topTVPicks} myList={myList} successMyList={successMyList}/>
+                <TitleList title="Trending now" data={homeMovies.data.movie} myList={myList} successMyList={successMyList}/>
+                <TitleList title="Most watched in Horror" data={homeMovies.data.horror} myList={myList} successMyList={successMyList}/>
+                <TitleList title="Sci-Fi greats" data={homeMovies.data.sciFi} myList={myList} successMyList={successMyList}/>
+                <TitleList title="Comedy magic" data={homeMovies.data.comedy} myList={myList} successMyList={successMyList}/>
             </div>
         );
     }
@@ -46,7 +46,7 @@ class HomeView extends React.Component{
 
 export function mapStateToProps(state) {
     return {
-        myList: state.myList,
+        myList: state.myList.myList,
         homeMovies: state.myList.homeMovies
     };
 }

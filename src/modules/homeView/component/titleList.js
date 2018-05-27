@@ -8,6 +8,7 @@ class TitleList extends React.Component{
             mounted: false,
             toggled: false
         };
+        this.handleAddRemove = this.handleAddRemove.bind(this);
     }
     componentWillReceiveProps(nextProps){
         if(nextProps.url !== this.props.url && nextProps.url !== ''){
@@ -25,6 +26,20 @@ class TitleList extends React.Component{
     handleClick(id){
         this.setState({
             toggled: !this.state.toggled });
+    }
+    handleAddRemove(item){
+        const { data } = this.props.myList;
+        let itemInList = false;
+        let newData = []
+        _.map(data, val => {
+            if( val == item ){
+                itemInList = true;
+            } else {
+                newData.push(val)
+            }
+        })
+        console.log(data, item, newData,'00000000000')
+        this.props.successMyList(newData);
     }
     render() {
         var titles ='';
@@ -44,7 +59,7 @@ class TitleList extends React.Component{
                         <div className="title">{name}</div>
                         <div className="rating">{title.vote_average} / 10</div>
                         <div className="plot">{title.overview}</div>
-                        <div className="ListToggle">
+                        <div className="ListToggle" onClick={(name) => this.handleAddRemove(name)}>
                             <div>
                                 <i className="fa fa-fw fa-plus"></i>
                                 <i className="fa fa-fw fa-check"></i>
