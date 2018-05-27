@@ -15,7 +15,6 @@ class HomeView extends React.Component{
         this.props.requestHomeMovies();
     }
     render(){
-        console.log(this.props.homeMovies,'00000')
         const { homeMovies } = this.props;
         return(
             <div className='homeView container-fluid'>

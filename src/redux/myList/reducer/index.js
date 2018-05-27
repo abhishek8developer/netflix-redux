@@ -4,7 +4,7 @@ import * as constants from '../../constants';
 
 let initialState = {
   myList: {
-    data:       {},
+    data:       [],
     isLoading:  false,
     isError:    false,
     isSuccess:  false,
@@ -81,5 +81,4 @@ export default handleActions({
   [constants.REQUEST_HOME_MOVIES]: requestHomeMovies,
   [constants.SUCCESS_HOME_MOVIES]: successHomeMovies,
   [constants.ERROR_HOME_MOVIES]: errorHomeMovies,
-
 }, initialState);
